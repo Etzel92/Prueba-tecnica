@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokemon</title>
 </head>
+
 <body>
     <header>
         <h1>Pokedex</h1>
@@ -15,7 +17,7 @@
         <h2>Busqueda por Id aleatoria</h2>
         <p>Buscar un pokémon entre el 1 y el 150</p>
         <button id="buscarAleatorio" type="button">Buscar pokémon aleatorio</button>
-    
+
         <h2>Buscar pokémon por nombre</h2>
         <label for="">Nombre del pokémon
             <input id="nombreBusqueda" type="text" placeholder="Ejemplo: Ditto">
@@ -33,6 +35,27 @@
         <p>Nombre: <strong> <span id="nombrePokemon"> </span> </strong> </p>
         <p>Tipo: <strong> <span id="tipoPokemon"> </span> </strong> </p>
 
+        <button id="verMasInformacion" type="button"> Ver más información</button>
+        <dialog id="masInfoPokemon">
+            <h2>Detalles del Pokémon</h2>
+
+            <p>Altura: <span id="alturaPokemon"></span> </p>
+            <p>Peso: <span id="pesoPokemon"></span> </p>
+            <p>Experiencia base: <span id="experienciaPokemon"></span> </p>
+            <p>Habilidades:</p>
+            <ul id="habilidadesPokemon"></ul>
+            <h3>Estadísticas base</h3>
+            <p>Salud: <span id="saludPokemon"> </span> </p>
+            <p>Ataque: <span id="ataquePokemon"> </span> </p>
+            <p>Defensa: <span id="defensaPokemon"></span> </p>
+            <p>Ataque especial: <span id="ataqueEspecialPokemon"></span> </p>
+            <p>Defensa especial: <span id="defensaEspecialPokemon"></span> </p>
+            <p>Velocidad: <span id="velocidadPokemon"></span> </p>
+
+            <button id="botonCerrarInfo" type="button">
+                Cerrar
+            </button>
+        </dialog>
         <button id="agregarEquipo" type="button"> Añadir al equipo</button>
 
     </section>
@@ -48,12 +71,13 @@
                     <th>Tipo</th>
                 </tr>
             </thead>
-            
+
             <tbody id="tablaEquipo">
-                
+
             </tbody>
-        </table>    
+        </table>
     </section>
     <script src="pokeapi.js"></script>
 </body>
+
 </html>
