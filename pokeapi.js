@@ -22,7 +22,10 @@ botonAleatorio.addEventListener("click", function(){
 
 const botonPorNombre = document.getElementById("buscarPorNombre");
 botonPorNombre.addEventListener("click", function(){
-    const nombre = document.getElementById("nombreBusqueda").value;
+    const nombre = document.getElementById("nombreBusqueda").value.trim().toLowerCase();
+        if (!nombreValido(nombre)) {
+        return;
+    }
     console.log(nombre);
     fetch("https://pokeapi.co/api/v2/pokemon/" + nombre)
         .then(function (respuesta) {
@@ -97,4 +100,12 @@ function pokemonRepetido(tablaEquipo, idPokemon) {
         }
     }
     return false;
+}
+
+function nombreValido(nombre) {
+    if (nombre.trim() === "") {
+        alert("Escribe el nombre de un Pokémon");
+        return false;
+    }
+    return true;
 }
