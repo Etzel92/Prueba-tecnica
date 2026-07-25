@@ -5,78 +5,151 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokemon</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="estilos.css">
 </head>
 
-<body>
-    <header>
-        <h1>Pokedex</h1>
+<body class="bg-light">
+    <header class="bg-danger text-white text-center py-2 mb-3">
+        <h1 class="mb-0">Pokédex</h1>
     </header>
 
-    <!--Busqueda de Pokémon por id-->
-    <section id="busqueda">
-        <h2>Busqueda por Id aleatoria</h2>
-        <p>Buscar un pokémon entre el 1 y el 150</p>
-        <button id="buscarAleatorio" type="button">Buscar pokémon aleatorio</button>
+    <main class="container">
 
-        <h2>Buscar pokémon por nombre</h2>
-        <label for="">Nombre del pokémon
-            <input id="nombreBusqueda" type="text" placeholder="Ejemplo: Ditto">
-        </label>
-        <button id="buscarPorNombre" type="button">Buscar pokémon por nombre</button>
-    </section>
+        <!--Busqueda de Pokémon-->
+        <section id="busqueda" class="card shadow-sm mb-3">
+            <div class="card-body">
+                <h2 id="tituloBusqueda" class="text-center h4 mb-2">Buscar Pokémon por ID aleatorio</h2>
 
+                <div class="d-flex justify-content-center gap-4 mb-2">
+                    <div class="form-check">
+                        <input id="buscarAleatorio" class="form-check-input" type="radio" name="tipoBusqueda" checked>
+                        <label class="form-check-label" for="buscarAleatorio">ID aleatorio</label>
+                    </div>
 
-    <!--Informacion del pokemon-->
-    <section id="info">
-        <h2>Información del Pokémon</h2>
-        <img id="imagenPokemon" alt="Imagen del Pokémon">
+                    <div class="form-check">
+                        <input id="buscarPorNombre" class="form-check-input" type="radio" name="tipoBusqueda">
+                        <label class="form-check-label" for="buscarPorNombre">Por nombre</label>
+                    </div>
+                </div>
 
-        <p>Número: <strong> <span id="numeroPokemon"> </span> </strong> </p>
-        <p>Nombre: <strong> <span id="nombrePokemon"> </span> </strong> </p>
-        <p>Tipo: <strong> <span id="tipoPokemon"> </span> </strong> </p>
+                <p id="descripcionBusqueda" class="text-center mb-2">Buscar un pokémon entre el 1 y el 150</p>
 
-        <button id="verMasInformacion" type="button"> Ver más información</button>
-        <dialog id="masInfoPokemon">
-            <h2>Detalles del Pokémon</h2>
+                <div id="campoNombre" class="d-none mb-3">
+                    <label for="nombreBusqueda" class="form-label">Nombre del pokémon</label>
+                    <input id="nombreBusqueda" class="form-control" type="text" placeholder="Ejemplo: Ditto">
+                </div>
 
-            <p>Altura: <span id="alturaPokemon"></span> </p>
-            <p>Peso: <span id="pesoPokemon"></span> </p>
-            <p>Experiencia base: <span id="experienciaPokemon"></span> </p>
-            <p>Habilidades:</p>
-            <ul id="habilidadesPokemon"></ul>
-            <h3>Estadísticas base</h3>
-            <p>Salud: <span id="saludPokemon"> </span> </p>
-            <p>Ataque: <span id="ataquePokemon"> </span> </p>
-            <p>Defensa: <span id="defensaPokemon"></span> </p>
-            <p>Ataque especial: <span id="ataqueEspecialPokemon"></span> </p>
-            <p>Defensa especial: <span id="defensaEspecialPokemon"></span> </p>
-            <p>Velocidad: <span id="velocidadPokemon"></span> </p>
+                <button id="botonBuscar" class="btn btn-primary btn-sm w-100" type="button">Buscar pokémon
+                    aleatorio</button>
+            </div>
+        </section>
 
-            <button id="botonCerrarInfo" type="button">
-                Cerrar
-            </button>
-        </dialog>
-        <button id="agregarEquipo" type="button"> Añadir al equipo</button>
+        <div class="row g-3 align-items-start">
 
-    </section>
+            <div class="col-lg-6">
 
-    <!--Equipo Pokémon-->
-    <section id="equipo">
-        <h2>Tu equipo (Maximo 6) </h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Número</th>
-                    <th>Nombre</th>
-                    <th>Tipo</th>
-                </tr>
-            </thead>
+                <!--Informacion del pokemon-->
+                <section id="info" class="card shadow-sm mb-3 d-none">
+                    <div class="card-body p-3">
+                        <h2 class="text-center h4 mb-3">Información del Pokémon</h2>
 
-            <tbody id="tablaEquipo">
+                        <div class="row align-items-center g-2">
+                            <div class="col-4 text-center">
+                                <img id="imagenPokemon" width="130" height="130"
+                                    style="width: 130px !important; height: 130px !important;"
+                                    alt="Imagen del Pokémon">
+                            </div>
 
-            </tbody>
-        </table>
-    </section>
+                            <div class="col-8 text-start">
+                                <p class="mb-2">Número: <strong> <span id="numeroPokemon"> </span> </strong> </p>
+                                <p class="mb-2">Nombre: <strong> <span id="nombrePokemon"> </span> </strong> </p>
+                                <p class="mb-2">Tipo: <strong> <span id="tipoPokemon"> </span> </strong> </p>
+
+                                <div class="d-flex gap-2 flex-wrap mt-2">
+                                    <button id="verMasInformacion" class="btn btn-outline-primary" type="button">Ver más
+                                        información</button>
+                                    <button id="agregarEquipo" class="btn btn-success" type="button">Añadir al
+                                        equipo</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <dialog id="masInfoPokemon" class="border-0 rounded-3 shadow-lg p-0">
+                            <div class="p-4">
+                                <h2 class="text-danger text-center mb-4">Detalles del Pokémon</h2>
+
+                                <h3 class="h5 border-bottom pb-2">Información general</h3>
+                                <p>Altura: <strong><span id="alturaPokemon"></span></strong></p>
+                                <p>Peso: <strong><span id="pesoPokemon"></span></strong></p>
+                                <p>Experiencia base: <strong><span id="experienciaPokemon"></span></strong></p>
+
+                                <h3 class="h5 border-bottom pb-2 mt-4">Habilidades</h3>
+                                <ul id="habilidadesPokemon" class="text-capitalize"></ul>
+
+                                <h3 class="h5 border-bottom pb-2 mt-4">Estadísticas base</h3>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p>Salud: <strong><span id="saludPokemon"></span></strong></p>
+                                        <p>Ataque: <strong><span id="ataquePokemon"></span></strong></p>
+                                        <p>Defensa: <strong><span id="defensaPokemon"></span></strong></p>
+                                    </div>
+
+                                    <div class="col-6">
+                                        <p>Ataque especial: <strong><span id="ataqueEspecialPokemon"></span></strong></p>
+                                        <p>Defensa especial: <strong><span id="defensaEspecialPokemon"></span></strong></p>
+                                        <p>Velocidad: <strong><span id="velocidadPokemon"></span></strong></p>
+                                    </div>
+                                </div>
+
+                                <button id="botonCerrarInfo" class="btn btn-secondary w-100 mt-3"
+                                    type="button">Cerrar</button>
+                            </div>
+                        </dialog>
+                    </div>
+                </section>
+
+            </div>
+
+            <div class="col-lg-6">
+
+                <!--Equipo Pokémon-->
+<section id="equipo" class="card shadow-sm mb-2 d-none">
+    <div class="card-body py-3">
+        <h2 class="text-center h4 mb-2">Tu equipo (Máximo 6)</h2>
+
+        <div class="table-responsive">
+            <table class="table table-sm table-striped table-hover align-middle text-center mb-0">
+                <thead class="table-danger">
+                    <tr>
+                        <th>Número</th>
+                        <th>Imagen</th>
+                        <th>Nombre</th>
+                        <th>Tipo</th>
+                        <th>Eliminar</th>
+                    </tr>
+                </thead>
+
+                <tbody id="tablaEquipo">
+
+                </tbody>
+            </table>
+        </div>
+
+        <button id="eliminarSeleccionados" class="btn btn-danger btn-sm w-100 mt-3" type="button">Eliminar
+            seleccionados</button>
+    </div>
+</section>
+
+            </div>
+
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
+        </script>
     <script src="pokeapi.js"></script>
 </body>
 
