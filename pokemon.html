@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon</title>
+</head>
+<body>
+    <header>
+        <h1>Pokedex</h1>
+    </header>
+
+    <section id="busqueda">
+        <h2>Busqueda por Id aleatoria</h2>
+        <p>Buscar un pokémon entre el 1 y el 150</p>
+        <button id="buscarAleatorio" type="button">Buscar pokémon aleatorio</button>
+    
+        <h2>Buscar pokémon por nombre</h2>
+        <label for="">Nombre del pokémon
+            <input id="nombreBusqueda" type="text" placeholder="Ejemplo: Ditto">
+        </label>
+        <button id="buscarPorNombre" type="button">Buscar pokémon por nombre</button>
+    </section>
+    
+    <section id="info">
+        <h2>Información del Pokémon</h2>
+        <img id="imagenPokemon" alt="Imagen del Pokémon">
+
+        <p>Número: <strong> <span id="numeroPokemon"> </span> </strong> </p>
+        <p>Nombre: <strong> <span id="nombrePokemon"> </span> </strong> </p>
+        <p>Tipo: <strong> <span id="tipoPokemon"> </span> </strong> </p>
+
+        <button id="agregarEquipo" type="button"> Añadir al equipo</button>
+
+    </section>
+
+    <section id="equipo">
+        <h2>Tu equipo (Maximo 6) </h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Número</th>
+                    <th>Nombre</th>
+                    <th>Tipo</th>
+                </tr>
+            </thead>
+            
+            <tbody id="tablaEquipo">
+                
+            </tbody>
+        </table>    
+    </section>
+    <script src="pokeapi.js"></script>
+</body>
+</html>
